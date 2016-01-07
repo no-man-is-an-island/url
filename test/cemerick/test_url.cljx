@@ -11,6 +11,7 @@
 (deftest test-map-to-query-str
   (are [x y] (= x (map->query y))
        "a=1&b=2&c=3" {:a 1 :b 2 :c 3}
+       "a=1&b=2&c=3" {:a 1 "b" 2 :c 3}
        "a=1&b=2&c=3" {:a "1"  :b "2" :c "3"}
        "a=1&b=2" {"a" "1" "b" "2"}
        "a=" {"a" ""}))

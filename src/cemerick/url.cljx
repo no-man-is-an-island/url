@@ -29,11 +29,11 @@
 (defn map->query
   [m]
   (some->> (seq m)
-    sort                     ; sorting makes testing a lot easier :-)
     (map (fn [[k v]]
            [(url-encode (name k))
             "="
             (url-encode (str v))]))
+    sort                     ; sorting makes testing a lot easier :-)
     (interpose "&")
     flatten
     (apply str)))
